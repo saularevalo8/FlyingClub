@@ -38,7 +38,9 @@ class App extends Component {
             exact path = "/"
             component = { Dashboard }
             /> <
-            Route path = "/classes"
+            Route authorize = {
+                ['admin'] }
+            path = "/classes"
             component = { Classes }
             /> <
             Route path = "/instructors"

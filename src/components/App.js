@@ -4,6 +4,7 @@ import Sidebar from './sidebar/sidebar';
 import Dashboard from './dashboard/Dashboard';
 import Classes from './classes/Classes';
 import Instructors from './instructors/Instructors'
+import LoginPage from './loginpage/LoginPage'
 import NotFound from './NotFound';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -33,6 +34,7 @@ class App extends Component {
                         <Route exact path="/" component={Dashboard}/>
                         <Route path="/classes" component={Classes}/>
                         <Route path="/instructors" component={Instructors}/>
+                        <Route path="/loginpage" component={LoginPage}/>
                         <Route component={NotFound}/>
                     </Switch>
                 </Sidebar>

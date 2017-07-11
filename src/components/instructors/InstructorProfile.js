@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Grid, Header, Icon, Image, Breadcrumb, Button, Form, Segment, Loader,Dimmer} from 'semantic-ui-react';
+import {Grid, Header, Icon, Image, Input, TextArea, Breadcrumb, Button, Form, Segment, Loader,Dimmer} from 'semantic-ui-react';
 import {withRouter, Link} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {getInstructor, resetSelectedInstructor} from '../../store/actions/instructor_actions';
@@ -68,7 +68,7 @@ class InstructorProfile extends Component {
                         <Form>
                             <Form.Group widths='equal'>
                                 <Form.Input label='Title' placeholder='Title' value={selected.title}/>
-                            </Form.Group>
+                            </Form.Group> {selected.title}
                             <Form.Group widths="equal">
                                 <Form.Input label='Email' placeholder='email' value={selected.email}/>
                                 <Form.Select label='Contract Type' options={options} placeholder='Contract Type'
@@ -124,5 +124,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({getInstructor, resetSelectedInstructor}, dispatch);
 }
+
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(InstructorProfile));

@@ -22,6 +22,7 @@
     "nodemon": "^1.11.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-forms": "^1.0.0-rc6",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^4.0.8",
@@ -42,6 +43,5 @@
     "build-api": "export NODE_ENV=production; babel server -s -D -d build",
     "dev-ui": "react-scripts start",
     "dev-api": "nodemon -w server server --exec babel-node --presets es2015"
-    
   }
 }

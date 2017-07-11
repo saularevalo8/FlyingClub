@@ -41,6 +41,12 @@ let items = [
         icon: 'mail outline',
         subHeader: '',
         path: '/messages'
+    },
+    {
+        name: 'Login',
+        icon: 'log out',
+        subHeader: '',
+        path: '/loginpage'
     }
 ];
 

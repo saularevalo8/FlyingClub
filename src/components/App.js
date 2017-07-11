@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Sidebar from './sidebar/sidebar';
 import Dashboard from './dashboard/Dashboard';
 import Classes from './classes/Classes';
 import Instructors from './instructors/Instructors'
 import NotFound from './NotFound';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {getInstructors} from '../store/actions/instructor_actions';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { getInstructors } from '../store/actions/instructor_actions';
 import axios from 'axios';
 
 import {
@@ -17,7 +17,7 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
-    componentWillMount(){
+    componentWillMount() {
         this.props.getInstructors();
         axios.get('/api/test').then((response) => {
             console.log('It Worked');
@@ -26,17 +26,29 @@ class App extends Component {
     }
 
     render() {
-        return (
-            <Router>
-                <Sidebar>
-                    <Switch>
-                        <Route exact path="/" component={Dashboard}/>
-                        <Route path="/classes" component={Classes}/>
-                        <Route path="/instructors" component={Instructors}/>
-                        <Route component={NotFound}/>
-                    </Switch>
-                </Sidebar>
-            </Router>
+        return ( <
+            Router >
+            <
+            Sidebar >
+            <
+            Switch >
+            <
+            Route authorize = {
+                ['user', 'admin'] }
+            exact path = "/"
+            component = { Dashboard }
+            /> <
+            Route path = "/classes"
+            component = { Classes }
+            /> <
+            Route path = "/instructors"
+            component = { Instructors }
+            /> <
+            Route component = { NotFound }
+            /> <
+            /Switch> <
+            /Sidebar> <
+            /Router>
         );
     }
 }
@@ -48,7 +60,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({getInstructors}, dispatch);
+    return bindActionCreators({ getInstructors }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

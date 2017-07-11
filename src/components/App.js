@@ -5,9 +5,7 @@ import Dashboard from './dashboard/Dashboard';
 import Classes from './classes/Classes';
 import Instructors from './instructors/Instructors'
 import NotFound from './NotFound';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { getInstructors } from '../store/actions/instructor_actions';
+import {bindActionCreators} from 'redux';
 import axios from 'axios';
 
 import {

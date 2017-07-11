@@ -1,19 +1,27 @@
-import React, {Component} from 'react';
-import {Image, Header, Icon} from 'semantic-ui-react';
+import React, { Component } from 'react';
+import RouteHandler from '../App.js';
+import { AuthorizedComponent } from 'react-router-role-authorization'
+import { Image, Header, Icon } from 'semantic-ui-react';
 
 
-class Dashboard extends Component {
+class Dashboard extends AuthorizedComponent {
     render() {
-        return (
-            <div>
-                <Header as='h2' dividing>
-                    <Icon name='dashboard' />
-                    <Header.Content>
-                        Dashboard
-                    </Header.Content>
-                </Header>
-                <Image src='/api/instructor/1/image?width=500' size='small'/>
-            </div>
+        return ( <
+            div >
+            <
+            Header as = 'h2'
+            dividing >
+            <
+            Icon name = 'dashboard' / >
+            <
+            Header.Content >
+            Dashboard <
+            /Header.Content> <
+            /Header> <
+            Image src = '/api/instructor/1/image?width=500'
+            size = 'small' / >
+            <
+            /div>
         )
 
     }

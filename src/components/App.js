@@ -5,7 +5,9 @@ import Dashboard from './dashboard/Dashboard';
 import Classes from './classes/Classes';
 import Instructors from './instructors/Instructors'
 import NotFound from './NotFound';
-import {bindActionCreators} from 'redux';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { getInstructors } from '../store/actions/instructor_actions';
 import axios from 'axios';
 
 import {
@@ -33,9 +35,12 @@ class App extends Component {
             <
             Route authorize = {
                 ['user', 'admin'] }
-            exact path = "/"
-            component = { Dashboard }
-            /> <
+            component = { Dashboard } >
+            <
+            Route component = { Dashboard }
+            path = "/" / >
+            <
+            /Route> <
             Route authorize = {
                 ['admin'] }
             path = "/classes"

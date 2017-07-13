@@ -8,6 +8,8 @@ cloudinary.config(config.cloudinaryConfig);
 module.exports = function (sequelize, DataTypes) {
     let User = sequelize.define('User', {
         title: {type: DataTypes.STRING, unique: true},
+        firstName: DataTypes.STRING, 
+        lastName: DataTypes.STRING,
         shortDescription: DataTypes.TEXT,
         bio: DataTypes.TEXT,
         image: DataTypes.STRING,

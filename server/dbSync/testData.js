@@ -11,24 +11,15 @@ module.exports.generate = (db) => {
             _.times(100, () => {
                 db.User.create({
                     title: faker.name.findName(),
+                    firstName: faker.name.firstName(),
+                    lastName: faker.name.lastName(),
                     image: 'Person-placeholder_qztcic',
                     imageVersion: "1494446207",
                     email: faker.internet.email(),
                     shortDescription: faker.lorem.paragraph(),
                     bio: faker.lorem.paragraphs(),
                     youtubePlaylistName: faker.internet.url(),
-                    Classes: [
-                        {
-                            title: "Beginners Salsa",
-                            description: "Salsa for beginners"
-                        },
-                        {
-                            title: "Beginners Bachata",
-                            description: "Bachata for beginners"
-                        }
-                    ]
-                }, {
-                    include: [db.Class]
+                    
                 })
             });
             resolve();

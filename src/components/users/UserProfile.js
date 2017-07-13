@@ -94,7 +94,7 @@ class UserProfile extends Component {
                         <Header as='h2' dividing>
                             <Icon name='user'/>
                             <Header.Content>
-                                {selected.title}
+                                {selected.firstName} {selected.lastName}
                             </Header.Content>
                         </Header>
                     </Grid.Column>
@@ -108,8 +108,8 @@ class UserProfile extends Component {
                     <Grid.Column width={12} floated="right">
                         <Form>
                             <Form.Group widths='equal'>
-                                <Form.Field control={Input} label='First name' placeholder='First name' value={selected.FirstName} />
-                                <Form.Field control={Input} label='Last name' placeholder='Last name' value={selected.Lastname}/>
+                                <Form.Field control={Input} label='First name' placeholder='First name' value={selected.firstName} />
+                                <Form.Field control={Input} label='Last name' placeholder='Last name' value={selected.lastName}/>
                                 <Form.Field control={Select} label='Membership Status' options={MemberStat} placeholder='Membership Status' value={selected.MemberStat}/>    
                             </Form.Group>
                             <Form.Group widths='equal'>

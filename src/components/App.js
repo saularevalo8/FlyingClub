@@ -4,6 +4,7 @@ import Sidebar from './sidebar/sidebar';
 import Dashboard from './dashboard/Dashboard';
 import Classes from './classes/Classes';
 import Users from './users/Users'
+import AddUser from './adduser/NewUserForm'
 import NotFound from './NotFound';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -32,6 +33,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Dashboard}/>
                         <Route path="/users" component={Users}/>
+                        <Route path="/adduser" component={AddUser}/>
                         <Route component={NotFound}/>
                     </Switch>
                 </Sidebar>

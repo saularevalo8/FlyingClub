@@ -11,8 +11,8 @@ module.exports.generate = (db) => {
             _.times(100, () => {
                 db.User.create({
                     title: faker.name.findName(),
-                    firstName: faker.name.firstName(),
-                    lastName: faker.name.lastName(),
+                    FirstName: faker.name.firstName(),
+                    LastName: faker.name.lastName(),
                     image: 'Person-placeholder_qztcic',
                     imageVersion: "1494446207",
                     email: faker.internet.email(),

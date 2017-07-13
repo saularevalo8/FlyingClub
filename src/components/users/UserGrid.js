@@ -22,7 +22,7 @@ class UserGrid extends Component {
             return (
                 <Grid.Column key={item.id} mobile={16} tablet={4} computer={3}>
                     <PersonCard
-                        header={item.title}
+                        header={item.FirstName}
                         subHeader='Something will go here'
                         description='test description'
                         imgSrc={item.images.small}

@@ -2,21 +2,21 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import InstructorGrid from './InstructorGrid';
-import InstructorProfile from './InstructorProfile';
+import UserGrid from './UserGrid';
+import UserProfile from './UserProfile';
 import {
     Route
 } from 'react-router-dom'
 
 
-class Instructors extends Component {
+class Users extends Component {
     render() {
         let {match} = this.props;
         return (
             <div>
-                <Route path={`${match.url}/:id`} render={() => <InstructorProfile test="test" /> } />
+                <Route path={`${match.url}/:id`} render={() => <UserProfile test="test" /> } />
                 
-                <Route exact path={`${match.url}`} test="test" component={InstructorGrid}/>
+                <Route exact path={`${match.url}`} test="test" component={UserGrid}/>
 
             </div>
         )
@@ -25,7 +25,7 @@ class Instructors extends Component {
 
 function mapStateToProps(state) {
     return {
-        instructors: state.instructors
+        users: state.users
     };
 }
 
@@ -33,4 +33,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({}, dispatch);
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Instructors));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Users));

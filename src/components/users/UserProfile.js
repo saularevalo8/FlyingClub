@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Grid, Header, Icon, Image, Breadcrumb, Button, Form, Segment, Loader,Dimmer} from 'semantic-ui-react';
 import {withRouter, Link} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
-import {getInstructor, resetSelectedInstructor} from '../../store/actions/instructor_actions';
+import {getUser, resetSelectedUser} from '../../store/actions/user_actions';
 import {connect} from 'react-redux';
 
 const options = [
@@ -10,7 +10,7 @@ const options = [
     {key: '2', text: 'Contractor', value: 'Contractor'},
 ];
 
-class InstructorProfile extends Component {
+class UserProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,11 +19,11 @@ class InstructorProfile extends Component {
     }
 
     componentWillMount() {
-        this.props.getInstructor(this.props.match.params.id);
+        this.props.getUser(this.props.match.params.id);
     }
 
     componentWillUnmount() {
-        this.props.resetSelectedInstructor();
+        this.props.resetSelectedUser();
     }
 
     updateResults = (results) => {
@@ -33,7 +33,7 @@ class InstructorProfile extends Component {
     handleChange = (e, {value}) => this.setState({value});
 
     renderGrid = () => {
-        let {selected} = this.props.instructors;
+        let {selected} = this.props.users;
         console.log(this.props);
         return (
             <Grid>
@@ -42,7 +42,7 @@ class InstructorProfile extends Component {
                         <Breadcrumb size='large'>
                             <Breadcrumb.Section as={Link} to="/">Home</Breadcrumb.Section>
                             <Breadcrumb.Divider icon='right chevron'/>
-                            <Breadcrumb.Section as={Link} to="/instructors">Instructors</Breadcrumb.Section>
+                            <Breadcrumb.Section as={Link} to="/instructors">Users</Breadcrumb.Section>
                             <Breadcrumb.Divider icon='right chevron'/>
                             <Breadcrumb.Section active>Instructor Profile</Breadcrumb.Section>
                         </Breadcrumb>
@@ -94,7 +94,7 @@ class InstructorProfile extends Component {
     }
 
     render() {
-        let {selected} = this.props.instructors;
+        let {selected} = this.props.users;
         if (selected) {
             return (
                 <div>
@@ -117,12 +117,12 @@ class InstructorProfile extends Component {
 
 function mapStateToProps(state) {
     return {
-        instructors: state.instructors
+        users: state.users
     };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({getInstructor, resetSelectedInstructor}, dispatch);
+    return bindActionCreators({getUser, resetSelectedUser}, dispatch);
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(InstructorProfile));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserProfile));

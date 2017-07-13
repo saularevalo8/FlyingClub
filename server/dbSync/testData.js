@@ -1,4 +1,4 @@
-import instructor from '../lib/instructor';
+import instructor from '../lib/user';
 import _ from 'lodash';
 import faker from 'faker';
 
@@ -9,7 +9,7 @@ module.exports.generate = (db) => {
         new Promise((resolve, reject) => {
 
             _.times(100, () => {
-                db.Instructor.create({
+                db.User.create({
                     title: faker.name.findName(),
                     image: 'Person-placeholder_qztcic',
                     imageVersion: "1494446207",

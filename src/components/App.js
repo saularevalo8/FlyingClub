@@ -3,11 +3,11 @@ import './App.css';
 import Sidebar from './sidebar/sidebar';
 import Dashboard from './dashboard/Dashboard';
 import Classes from './classes/Classes';
-import Instructors from './instructors/Instructors'
+import Users from './users/Users'
 import NotFound from './NotFound';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getInstructors} from '../store/actions/instructor_actions';
+import {getUsers} from '../store/actions/user_actions';
 import axios from 'axios';
 
 import {
@@ -18,7 +18,7 @@ import {
 
 class App extends Component {
     componentWillMount(){
-        this.props.getInstructors();
+        this.props.getUsers();
         axios.get('/api/test').then((response) => {
             console.log('It Worked');
             console.log(response.data);
@@ -31,8 +31,7 @@ class App extends Component {
                 <Sidebar>
                     <Switch>
                         <Route exact path="/" component={Dashboard}/>
-                        <Route path="/classes" component={Classes}/>
-                        <Route path="/instructors" component={Instructors}/>
+                        <Route path="/users" component={Users}/>
                         <Route component={NotFound}/>
                     </Switch>
                 </Sidebar>
@@ -48,7 +47,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({getInstructors}, dispatch);
+    return bindActionCreators({getUsers}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

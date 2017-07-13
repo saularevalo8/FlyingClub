@@ -1,4 +1,4 @@
-import {Instructor} from '../models';
+import {User} from '../models';
 import cloudinary from 'cloudinary';
 import config from '../config/config.js';
 import del from 'del';
@@ -7,29 +7,29 @@ import {cloudinaryUpload} from './util';
 cloudinary.config(config.cloudinaryConfig);
 
 exports.getById = (id) => {
-    return Instructor.findById(id);
+    return User.findById(id);
 };
 
 exports.getAll = (searchParams, includeArr) => {
-    return Instructor.findAll();
+    return User.findAll();
 };
 
-exports.search = (instructoObj) => {
-    return Instructor.findAll({where: instructoObj})
+exports.search = (userObj) => {
+    return User.findAll({where: userObj})
 };
 
-exports.add = (instructorObj) => {
-    return Instructor.create(instructorObj);
+exports.add = (userObj) => {
+    return User.create(userObj);
 };
 
 exports.delete = (id) => {
-    return Instructor.destroy({where: {id: id}});
+    return User.destroy({where: {id: id}});
 };
 
-exports.addImage = (instructorId, image) => {
+exports.addImage = (userId, image) => {
     return new Promise((resolve, reject) => {
-        Instructor.findById(instructorId).then((item) => {
-            cloudinaryUpload(image, `instructors/${item.title}_image`).then(cloudinaryInfo => {
+        User.findById(userId).then((item) => {
+            cloudinaryUpload(image, `users/${item.title}_image`).then(cloudinaryInfo => {
                 item.update({image: cloudinaryInfo.public_id, imageVersion: cloudinaryInfo.version}).then(finalRes => {
                     resolve(cloudinaryInfo);
                 }).catch(err => {
@@ -42,9 +42,9 @@ exports.addImage = (instructorId, image) => {
     })
 };
 
-exports.getImage = (instructorId, params) => {
+exports.getImage = (userId, params) => {
     return new Promise((resolve, reject) => {
-        Instructor.findById(instructorId).then(res => {
+        User.findById(userId).then(res => {
             params.version = res.imageVersion;
             let image = cloudinary.url(res.image, params);
             resolve(image);

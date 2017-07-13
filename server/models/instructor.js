@@ -6,7 +6,7 @@ import config from '../config/config.js';
 cloudinary.config(config.cloudinaryConfig);
 
 module.exports = function (sequelize, DataTypes) {
-    let Instructor = sequelize.define('Instructor', {
+    let User = sequelize.define('User', {
         title: {type: DataTypes.STRING, unique: true},
         shortDescription: DataTypes.TEXT,
         bio: DataTypes.TEXT,
@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    Instructor.prototype.toJSON = function () {
+    User.prototype.toJSON = function () {
         let values = this.get();
         values.images = {
             original: cloudinary.url(values.image, {version: values.imageVersion}),
@@ -34,5 +34,5 @@ module.exports = function (sequelize, DataTypes) {
         return values;
     };
 
-    return Instructor;
+    return User;
 };

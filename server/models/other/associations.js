@@ -1,6 +1,6 @@
 import scopes from './scopes';
 export default (db) => {
-    db.Class.belongsTo(db.Instructor, {
+    db.Class.belongsTo(db.User, {
         onDelete: "SET NULL",
         foreignKey: {
             allowNull: true
@@ -17,10 +17,10 @@ export default (db) => {
         }
     });
 
-    db.Instructor.hasMany(db.Class);
-    db.Instructor.hasMany(db.ScheduledClass);
+    db.User.hasMany(db.Class);
+    db.User.hasMany(db.ScheduledClass);
 
-    db.ScheduledClass.belongsTo(db.Instructor, {
+    db.ScheduledClass.belongsTo(db.User, {
         onDelete: "RESTRICT",
         foreignKey: {
             allowNull: true

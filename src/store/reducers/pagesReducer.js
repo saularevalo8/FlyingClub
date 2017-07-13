@@ -11,6 +11,12 @@ let items = [
         icon: 'users',
         subHeader: '',
         path: '/users'
+    }, 
+    {
+        name: 'Add User',
+        icon: 'add user', 
+        subHeader: '', 
+        path: '/adduser'
     }
 ];
 

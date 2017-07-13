@@ -83,7 +83,7 @@ class UserProfile extends Component {
                         <Breadcrumb size='large'>
                             <Breadcrumb.Section as={Link} to="/">Home</Breadcrumb.Section>
                             <Breadcrumb.Divider icon='right chevron'/>
-                            <Breadcrumb.Section as={Link} to="/instructors">Users</Breadcrumb.Section>
+                            <Breadcrumb.Section as={Link} to="/users">Users</Breadcrumb.Section>
                             <Breadcrumb.Divider icon='right chevron'/>
                             <Breadcrumb.Section active>User Profile</Breadcrumb.Section>
                         </Breadcrumb>

@@ -17,6 +17,12 @@ let items = [
         icon: 'add user', 
         subHeader: '', 
         path: '/adduser'
+    },
+    {
+        name: 'LoginPage',
+        icon: 'sign in',
+        subHeader: '',
+        path: '/login' //this has to be the fucking folder dude
     }
 ];
 

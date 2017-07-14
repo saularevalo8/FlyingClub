@@ -10,6 +10,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getUsers} from '../store/actions/user_actions';
 import axios from 'axios';
+import LoginPage from './login/LoginPage';
 
 import {
     BrowserRouter as Router,
@@ -31,6 +32,7 @@ class App extends Component {
             <Router>
                 <Sidebar>
                     <Switch>
+                        <Route path="/login" component={LoginPage}/>
                         <Route exact path="/" component={Dashboard}/>
                         <Route path="/users" component={Users}/>
                         <Route path="/adduser" component={AddUser}/>

@@ -22,9 +22,9 @@ class UserGrid extends Component {
             return (
                 <Grid.Column key={item.id} mobile={16} tablet={4} computer={3}>
                     <PersonCard
-                        header={item.FirstName}
-                        subHeader='Something will go here'
-                        description='test description'
+                        headerName={item.firstName + " " + item.lastName}
+                        memberStatus={item.memberStatus}
+                        phoneNum={item.phoneNum}
                         imgSrc={item.images.small}
                         link={`${this.props.match.url}/${item.id}`}
                     />

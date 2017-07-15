@@ -7,47 +7,47 @@ cloudinary.config(config.cloudinaryConfig);
 
 module.exports = function(sequelize, DataTypes) {
     let User = sequelize.define('User', {
-        FirstName: { type: DataTypes.STRING,
+        firstName: { type: DataTypes.STRING,
         allowNull: false },
-        LastName: { type: DataTypes.STRING,
+        lastName: { type: DataTypes.STRING,
         allowNull: false },
-        Address: { type: DataTypes.STRING,
+        address: { type: DataTypes.STRING,
         allowNull: false },
-        PhoneNum: { type: DataTypes.STRING,
+        phoneNum: { type: DataTypes.STRING,
         allowNull: false },
         email: { type: DataTypes.STRING,
         allowNull: false },
-        MemberStatus: {
+        memberStatus: {
             type: DataTypes.ENUM,
             values: ["Active", "Inactive", "Student", "Associate", "Waiting List", "Honorary", "A & P", "NonDues"],
             defaultValue: "Inactive",
             allowNull: false
         },
-        MedicalRecords: {
+        medicalRecords: {
             type: DataTypes.ENUM,
             values: ["First", "Second", "Third", "Basic Med"],
             defaultValue: "Basic Med",
             allowNull: false
         },
-        SchedulingPrivileges: {
+        schedulingPrivileges: {
             type: DataTypes.ENUM,
             values: ["Current", "Suspended"],
             defaultValue: "Suspended",
             allowNull: false
         },
-        ACAssignment: {
+        acAssignment: {
             type: DataTypes.ENUM,
             values: ["N73614", "N21643", "N6375T", "N23676", "None"],
             defaultValue: "None",
             allowNull: false
         },
-        PilotRatings: {
+        pilotRatings: {
             type: DataTypes.ENUM,
             values: ["SEL", "MEL", "SES", "MES", "Complex", "IFR", "Multi","None"],
             defaultValue: "None",
             allowNull: false
         },
-        CertificationLevel: {
+        certificationLevel: {
             type: DataTypes.ENUM,
             values: ["Student", "Sport", "Recreational", "Private", "Commercial", "ATP", "None"],
             defaultValue: "None",
@@ -55,8 +55,8 @@ module.exports = function(sequelize, DataTypes) {
         },
 
 
-        Username: { type: DataTypes.STRING, unique: true, allowNull: false},
-        Password: { type: DataTypes.STRING, unique: true, allowNull: false}
+        username: { type: DataTypes.STRING, unique: true, allowNull: false},
+        password: { type: DataTypes.STRING, unique: true, allowNull: false}
 
     });
 

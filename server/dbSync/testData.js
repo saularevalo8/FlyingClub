@@ -8,67 +8,37 @@ module.exports.generate = (db) => {
     Promise.all([
         new Promise((resolve, reject) => {
 
-            _.times(100, () => {
+            _.times(20, () => {
                 db.User.create({
-                    title: faker.name.findName(),
-                    FirstName: faker.name.firstName(),
-                    LastName: faker.name.lastName(),
-                    image: 'Person-placeholder_qztcic',
-                    imageVersion: "1494446207",
+                    firstName: faker.name.firstName(),
+                    lastName: faker.name.lastName(),
+                    address: faker.address.streetAddress(),
+                    phoneNum: faker.phone.phoneNumber(),
                     email: faker.internet.email(),
-                    shortDescription: faker.lorem.paragraph(),
-                    bio: faker.lorem.paragraphs(),
-                    youtubePlaylistName: faker.internet.url(),
-                    
+                    memberStatus: "Active",
+                    medicalRecords: "First",
+                    schedulingPrivileges: "Current",
+                    acAssignment: "N73614",
+                    pilotRatings: "SEL",
+                    certificationLevel: "Sport",
+                    username: faker.random.word(),
+                    password: faker.random.word()
+
                 })
             });
             resolve();
         }),
 
-        db.Student.create({
-            firstName: faker.name.findName(),
-            lastName: "1",
-            dob: new Date("05/03/92"),
-            email: faker.internet.email(),
-            phoneNumber: '8182976743',
-            address: "231212",
-            emergencyContact: "Mom",
-            emergencyNumber: "827382827",
-            subscribed: 0
-        }),
-
-        db.Student.create({
-            firstName: "Student",
-            lastName: "2",
-            dob: new Date("05/03/92"),
-            email: 'student2@gmail.com',
-            phoneNumber: '8182976743',
-            address: "231212",
-            emergencyContact: "Mom",
-            emergencyNumber: "827382827",
-            subscribed: 0
-        }),
-
-        db.Student.create({
-            firstName: "Student",
-            lastName: "3",
-            dob: new Date("05/03/92"),
-            email: 'student3@gmail.com',
-            phoneNumber: '8182976743',
-            address: "231212",
-            emergencyContact: "Mom",
-            emergencyNumber: "827382827",
-            subscribed: 0
-        })
+   
 
     ]).then(values => {
         console.log('Test data has been generated'.green);
-        //instructor.addImage(1);
-        // db.Instructor.findById(1).then(res => {
-        //    res.update({image: "nktkbiklkmwnkbl7zh1r"}).then(result => {
-        //        instructor.getImage(1);
-        //    })
-        // });
+        user.addImage(1);
+        db.User.findById(1).then(res => {
+           res.update({image: "nktkbiklkmwnkbl7zh1r"}).then(result => {
+               user.getImage(1);
+           })
+        });
 
     });
 

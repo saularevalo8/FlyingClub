@@ -18,8 +18,10 @@ exports.search = (userObj) => {
     return User.findAll({where: userObj})
 };
 
-exports.add = (userObj) => {
-    return User.create(userObj);
+exports.addUpdate = (userObj) => {
+    return User.findOrCreate({where: {username: user.username}}).then(userObj => {
+        userObj.update(req.body);
+    });
 };
 
 exports.delete = (id) => {

@@ -3,6 +3,7 @@ import {Sidebar, Segment, Menu, Icon} from 'semantic-ui-react';
 import {NavLink, withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
+import './sidebar.css';
 
 
 class SidebarLeftUncover extends Component {
@@ -39,7 +40,7 @@ class SidebarLeftUncover extends Component {
     render() {
         const {visible} = this.state;
         return (
-            <div>
+            <div className="sidebar-container">
                 {/*<Sidebar.Pushable as={Segment}>*/}
                     <Sidebar
                         as={Menu}

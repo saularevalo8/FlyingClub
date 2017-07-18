@@ -7,6 +7,7 @@ import store from './store/store';
 import registerServiceWorker from './registerServiceWorker';
 import './stubs';
 import axios from 'axios';
+import LoginPage from './components/login/LoginPage';
 
 ReactDOM.render(
     <Provider store={store}>

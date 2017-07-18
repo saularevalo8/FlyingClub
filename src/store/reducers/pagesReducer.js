@@ -4,7 +4,7 @@ let items = [
         name: 'Dashboard',
         icon: 'dashboard',
         subHeader: 'Test',
-        path: '/'
+        path: '/dashboard'
     },
     {
         name: 'Users',
@@ -17,6 +17,12 @@ let items = [
         icon: 'add user', 
         subHeader: '', 
         path: '/adduser'
+    },
+    {
+        name: 'LoginPage',
+        icon: 'sign in',
+        subHeader: '',
+        path: '/'
     }
 ];
 

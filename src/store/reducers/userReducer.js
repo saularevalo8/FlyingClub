@@ -1,18 +1,18 @@
-import {GET_INSTRUCTORS, GET_INSTRUCTOR, RESET_INSTRUCTOR} from '../actions/instructor_actions';
+import {GET_USERS, GET_USER, RESET_USER} from '../actions/user_actions';
 
-const instructors = (state={all:[], selected:null}, action) => {
+const users = (state={all:[], selected:null}, action) => {
     switch(action.type){
-        case GET_INSTRUCTORS:
+        case GET_USERS:
             return {
                 ...state,
                 all: action.payload.data
             };
-        case GET_INSTRUCTOR:
+        case GET_USER:
             return {
                 ...state,
                 selected: action.payload.data
             };
-        case RESET_INSTRUCTOR:
+        case RESET_USER:
             return {
                 ...state,
                 selected: action.payload
@@ -23,4 +23,4 @@ const instructors = (state={all:[], selected:null}, action) => {
 
 };
 
-export default instructors;
+export default users;

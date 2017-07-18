@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import pages from './pagesReducer';
-import instructors from './instructorReducer';
+import users from './userReducer';
 
 const reducers = combineReducers({
     pages,
-    instructors
+    users
 });
 
 export default reducers;

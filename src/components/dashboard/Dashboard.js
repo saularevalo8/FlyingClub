@@ -18,7 +18,7 @@ class Dashboard extends AuthorizedComponent {
             Dashboard <
             /Header.Content> <
             /Header> <
-            Image src = '/api/instructor/1/image?width=500'
+            Image src = '/api/user/1/image?width=500'
             size = 'small' / >
             <
             /div>

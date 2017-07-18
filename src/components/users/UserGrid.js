@@ -5,10 +5,10 @@ import PersonCard from './PersonCard';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getInstructors} from '../../store/actions/instructor_actions';
+import {getUsers} from '../../store/actions/user_actions';
 
 
-class InstructorGrid extends Component {
+class UserGrid extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -18,13 +18,13 @@ class InstructorGrid extends Component {
 
     renderCards = () => {
 
-        return this.props.instructors.all.map((item, i) => {
+        return this.props.users.all.map((item, i) => {
             return (
                 <Grid.Column key={item.id} mobile={16} tablet={4} computer={3}>
                     <PersonCard
-                        header={item.title}
-                        subHeader='Something will go here'
-                        description='test description'
+                        headerName={item.firstName + " " + item.lastName}
+                        memberStatus={item.memberStatus}
+                        phoneNum={item.phoneNum}
                         imgSrc={item.images.small}
                         link={`${this.props.match.url}/${item.id}`}
                     />
@@ -46,7 +46,7 @@ class InstructorGrid extends Component {
                         <Header as='h2' dividing>
                             <Icon name='users'/>
                             <Header.Content>
-                                Instructors
+                                Users
                             </Header.Content>
                         </Header>
                     </Grid.Column>
@@ -55,7 +55,7 @@ class InstructorGrid extends Component {
                     <Grid.Column width={8} floated="right">
                         <SearchBox
                             className="right floated"
-                            source={this.props.instructors.all}
+                            source={this.props.users.all}
                             updateResults={this.updateResults}
                         />
                     </Grid.Column>
@@ -71,12 +71,12 @@ class InstructorGrid extends Component {
 
 function mapStateToProps(state) {
     return {
-        instructors: state.instructors
+        users: state.users
     };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({getInstructors}, dispatch);
+    return bindActionCreators({getUsers}, dispatch);
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(InstructorGrid));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserGrid));

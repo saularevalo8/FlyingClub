@@ -13,28 +13,28 @@ class PersonCard extends Component {
     }
 
     render() {
-        let {header, subHeader, imgSrc, description, link} = this.props;
+        let {headerName, memberStatus,  imgSrc, phoneNum, email,link} = this.props;
 
         return (
             <Card raised style={{marginBottom: 24}}>
                 <Image src={imgSrc} />
                 <Card.Content>
                     <Card.Header>
-                        <Link to={link}>{header}</Link>
+                        <Link to={link}>{headerName}</Link>
                     </Card.Header>
                     <Card.Meta>
                             <span className='date'>
-                                {subHeader}
+                                {memberStatus}
                             </span>
                     </Card.Meta>
                     <Card.Description>
-                        {description}
+                        {phoneNum}
+                        {email}
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
                     <a>
                         <Icon name='user'/>
-                        22 Friends
                     </a>
                 </Card.Content>
             </Card>

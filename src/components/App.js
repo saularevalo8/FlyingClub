@@ -3,7 +3,8 @@ import './App.css';
 import Sidebar from './sidebar/sidebar';
 import Dashboard from './dashboard/Dashboard';
 import Classes from './classes/Classes';
-import Instructors from './instructors/Instructors'
+import Users from './users/Users'
+import AddUser from './adduser/NewUserForm'
 import NotFound from './NotFound';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -26,34 +27,17 @@ class App extends Component {
     }
 
     render() {
-        return ( <
-            Router >
-            <
-            Sidebar >
-            <
-            Switch >
-            <
-            Route authorize = {
-                ['user', 'admin'] }
-            component = { Dashboard } >
-            <
-            Route component = { Dashboard }
-            path = "/" / >
-            <
-            /Route> <
-            Route authorize = {
-                ['admin'] }
-            path = "/classes"
-            component = { Classes }
-            /> <
-            Route path = "/instructors"
-            component = { Instructors }
-            /> <
-            Route component = { NotFound }
-            /> <
-            /Switch> <
-            /Sidebar> <
-            /Router>
+        return (
+            <Router>
+                <Sidebar>
+                    <Switch>
+                        <Route exact path="/" component={Dashboard}/>
+                        <Route path="/users" component={Users}/>
+                        <Route path="/adduser" component={AddUser}/>
+                        <Route component={NotFound}/>
+                    </Switch>
+                </Sidebar>
+            </Router>
         );
     }
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import {Grid, Icon, Image, Breadcrumb, Button, Form, Segment, Loader, Dimmer, Container, Header, Input, Radio, Select} from 'semantic-ui-react';
+import {Grid, Icon, Image, Breadcrumb, Button, Form, Segment, Loader, Dimmer, Container, Header, Input, Radio, Select, Accordion} from 'semantic-ui-react';
+import AccountHistory from './AccountHistory';
 import {withRouter, Link} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {getUser, resetSelectedUser} from '../../store/actions/user_actions';
@@ -142,7 +143,9 @@ class UserProfile extends Component {
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row >
-
+                    <Grid.Column width={12} floated="right">
+                        <AccountHistory/>
+                    </Grid.Column>
                 </Grid.Row>
             </Grid>
         )

@@ -83,7 +83,7 @@ class UserProfile extends Component {
                         <Breadcrumb size='large'>
                             <Breadcrumb.Section as={Link} to="/">Home</Breadcrumb.Section>
                             <Breadcrumb.Divider icon='right chevron'/>
-                            <Breadcrumb.Section as={Link} to="/instructors">Users</Breadcrumb.Section>
+                            <Breadcrumb.Section as={Link} to="/users">Users</Breadcrumb.Section>
                             <Breadcrumb.Divider icon='right chevron'/>
                             <Breadcrumb.Section active>User Profile</Breadcrumb.Section>
                         </Breadcrumb>
@@ -94,7 +94,7 @@ class UserProfile extends Component {
                         <Header as='h2' dividing>
                             <Icon name='user'/>
                             <Header.Content>
-                                {selected.title}
+                                {selected.firstName} {selected.lastName}
                             </Header.Content>
                         </Header>
                     </Grid.Column>
@@ -108,29 +108,30 @@ class UserProfile extends Component {
                     <Grid.Column width={12} floated="right">
                         <Form>
                             <Form.Group widths='equal'>
-                                <Form.Field control={Input} label='First name' placeholder='First name' value={selected.FirstName} />
-                                <Form.Field control={Input} label='Last name' placeholder='Last name' value={selected.Lastname}/>
-                                <Form.Field control={Select} label='Membership Status' options={MemberStat} placeholder='Membership Status' value={selected.MemberStat}/>    
+                                <Form.Field control={Input} label='First name' placeholder='First name' value={selected.firstName} />
+                                <Form.Field control={Input} label='Last name' placeholder='Last name' value={selected.lastName}/>
+                                <Form.Field control={Select} label='Membership Status' options={MemberStat} placeholder='Membership Status' value={selected.MemberStatus}/>    
                             </Form.Group>
                             <Form.Group widths='equal'>
                                 <Form.Field control={Input} label='Email' placeholder='Email' value={selected.email}/>
-                                <Form.Field control={Input} label='Username' placeholder='Username' value={selected.Username}/>
-                                <Form.Field control={Input} label='Password' placeholder='Password' value={selected.Password}/>
+                                <Form.Field control={Input} label='Username' placeholder='Username' value={selected.username}/>
+                                <Form.Field control={Input} label='Password' placeholder='Password' value={selected.password}/>
                             </Form.Group>
-                            <Form.Field control={Input} label='Address' placeholder='Address'/>
+                            <Form.Field control={Input} label='Address' placeholder='Address'value={selected.address}/>
                             <Form.Group widths='equal'>
-                                <Form.Field control={Input} label='Phone Number' placeholder='Phone Number'/>
-                                <Form.Field control={Select} label='Medical Records' options={MedicalRecordsOptions} placeholder='Medical Class'/>
+                                <Form.Field control={Input} label='Phone Number' placeholder='Phone Number' value={selected.phoneNum}/>
+                                <Form.Field control={Select} label='Medical Records' options={MedicalRecordsOptions} placeholder='Medical Class' value={selected.medicalRecords}/>
                             </Form.Group>
                             <Form.Group inline>
                                 <label>Pilot Ratings</label>
-                                <Form.Field control={Radio} label='SEL' value='SEL' checked={value === 'SEL'} onChange={this.handleChange} />
-                                <Form.Field control={Radio} label='MEL' value='MEL' checked={value === 'MEL'} onChange={this.handleChange} />
-                                <Form.Field control={Radio} label='SES' value='SES' checked={value === 'SES'} onChange={this.handleChange} />
-                                <Form.Field control={Radio} label='MES' value='MES' checked={value === 'MES'} onChange={this.handleChange} />
-                                <Form.Field control={Radio} label='Complex' value='Complex' checked={value === 'Complex'} onChange={this.handleChange} />
-                                <Form.Field control={Radio} label='IFR' value='IFR' checked={value === 'IFR'} onChange={this.handleChange} />
-                                <Form.Field control={Radio} label='Multi' value='Multi' checked={value === 'Multi'} onChange={this.handleChange} />
+                                <Form.Field control={Radio} label='SEL' value='SEL' checked={selected.pilotRatings.values} onChange={this.handleChange} />
+                                <Form.Field control={Radio} label='MEL' value='MEL' checked={selected.pilotRatings.values} onChange={this.handleChange} />
+                                <Form.Field control={Radio} label='SES' value='SES' checked={selected.pilotRatings.values} onChange={this.handleChange} />
+                                <Form.Field control={Radio} label='MES' value='MES' checked={selected.pilotRatings.values} onChange={this.handleChange} />
+                                <Form.Field control={Radio} label='Complex' value='Complex' checked={selected.pilotRatings.values} onChange={this.handleChange} />
+                                <Form.Field control={Radio} label='IFR' value='IFR' checked={selected.pilotRatings.values} onChange={this.handleChange} />
+                                <Form.Field control={Radio} label='Multi' value='Multi' checked={selected.pilotRatings.values} onChange={this.handleChange} />
+                                <Form.Field control={Radio} label='None' value='None' checked={selected.pilotRatings.values} onChange={this.handleChange} />
                             </Form.Group><Form.Group widths='equal'>
                                 <Form.Field control={Select} label='Certification Level' options={CertLevelOptions} placeholder='Certification Level'/>
                                 <Form.Field control={Select} label='Scheduling Privileges' options={SchedulePrivOptions} placeholder='Scheduling Privileges'/>

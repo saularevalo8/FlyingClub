@@ -1,37 +1,43 @@
-import {Router} from 'express';
-import {upload} from "../lib/util";
+import { Router } from 'express';
+import { upload } from "../lib/util";
 import User from '../lib/user';
 
 export default () => {
-    let user = Router();
+    let router = Router();
 
     //User
-    user.get('/:id/image?', (req, res) => {
+    router.get('/:id/image?', (req, res) => {
         User.getImage(req.params.id, req.query).then(image => {
             res.redirect(image);
         });
     });
 
-    user.get('/all', (req, res) => {
+    router.get('/all', (req, res) => {
         User.getAll().then(items => {
             res.json(items);
         })
     });
 
-    user.post('/:id/image', upload.single('test'), (req, res) => {
+    router.post("/api/createuser", (req, res) => {
+     User.addUpdate(req.body).then(data => {
+        res.json(data);
+     })
+    });
+
+    router.post('/:id/image', upload.single('test'), (req, res) => {
         User.addImage(req.params.id, req.file.path).then(result => {
-            res.json(result);
-        })
+                res.json(result);
+            })
             .catch(err => {
                 res.json(err);
             });
     });
 
-    user.get('/:id', (req, res) => {
+    router.get('/:id', (req, res) => {
         User.getById(req.params.id).then(item => {
             res.json(item);
         })
     });
 
-    return user;
+    return router;
 }

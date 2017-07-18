@@ -31,7 +31,7 @@ class App extends Component {
             <Router>
                 <Sidebar>
                     <Switch>
-                        <Route exact path="/" component={Dashboard}/>
+                        <Route path="/dashboard" component={Dashboard}/>
                         <Route path="/users" component={Users}/>
                         <Route path="/adduser" component={AddUser}/>
                         <Route component={NotFound}/>

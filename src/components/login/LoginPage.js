@@ -1,5 +1,7 @@
 import React from 'react'
-import { Button, Container, Divider, Header } from 'semantic-ui-react'
+import { Button, Container, Menu, Divider, Header, Label, Segment } from 'semantic-ui-react'
+import { Form, Input, TextArea, Checkbox, Radio, RadioGroup, Dropdown, Select, } from 'formsy-semantic-ui-react'
+import './LoginPage.css'
 
 import {
   BrowserRouter as Router,
@@ -15,20 +17,35 @@ import {
 // 3. Log in
 // 4. Click the back button, note the URL each time
 
+const styles = {
+  root: {
+    marginTop: 18,
+  },
+
+  customErrorLabel: {
+    color: '#f00',
+    textAlign: 'center',
+  },
+};
+
+const errorLabel = <Label color="red" pointing="left"/>;
+
 const LoginPage = () => (
   <Router>
-    <div>
-        <Container textAlign='center'>
-            <AuthButton/>
-            <div>
-                <Header as="h3"><Link to="/public">Public Page</Link></Header>
-                <Header as="h3"><Link to="/protected">A&E Flying Club Dashboard</Link></Header>
-                <br/>
-            </div>
-            <Route path="/public" component={Public}/>
-            <Route path="/login" component={Login}/>
-            <PrivateRoute path="/protected" component={Protected}/>
-        </Container>
+    <div className="ui middle aligned center aligned grid">
+      <div className="column">
+          <Container textAlign='center'>
+              <AuthButton/>
+              <div>
+                  <Header as="h3"><Link to="/public">Public Page</Link></Header>
+                  <Header as="h3"><Link to="/protected">A&E Flying Club Dashboard</Link></Header>
+                  <br/>
+              </div>
+              <Route path="/public" component={Public}/>
+              <Route path="/login" component={Login}/>
+              <PrivateRoute path="/protected" component={Protected}/>
+          </Container>
+        </div>
     </div>
   </Router>
 )
@@ -85,6 +102,7 @@ class Login extends React.Component {
   }
 
   render() {
+
     const { from } = this.props.location.state || { from: { pathname: '/' } }
     const { redirectToReferrer } = this.state
     
@@ -95,7 +113,7 @@ class Login extends React.Component {
     }
     
     return (
-      <div>
+      <div className='login-page'>
         <Container fluid text>
             <Header as="h4">You must log in to view the page at {from.pathname}</Header>
             <Button secondary onClick={this.login}>Log in</Button>
@@ -104,5 +122,25 @@ class Login extends React.Component {
     )
   }
 }
+
+
+
+const inputWithDefaultValue = (
+  <Input 
+    name="inputWithDefaultValue"
+    placeholder="Email"
+    defaultValue="john@doe.test"
+    icon="mail"
+    iconPosition="left"
+    required
+    validations="isEmail"
+    validationErrors={{
+      isEmail: 'This is not a valid email',
+      isDefaultRequiredValue: 'Email is Required',
+    }}
+    errorLabel={ errorLabel }
+    style={ styles.formElement }
+  />
+);
 
 export default LoginPage;

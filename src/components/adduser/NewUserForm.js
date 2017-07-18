@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Header, Segment, Button, Form, Input, Radio, Select} from 'semantic-ui-react'
+import './NewUserForm.css'
 
 const MemberStat = [
   { key: 'Active', text: 'Active', value: 'Active' },
@@ -48,7 +49,7 @@ class NewUserForm extends Component {
   render() {
     const { value } = this.state
     return (
-    <Container text>
+    <Container className="new-user-form" text>
     <Header as='h1' textAlign='center'>Create New User</Header>
     <Segment padded>
       <Form>

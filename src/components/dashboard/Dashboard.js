@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {Image, Header, Icon} from 'semantic-ui-react';
-
+import './Dashboard.css';
 
 class Dashboard extends Component {
     render() {
         return (
-            <div>
+            <div className='dash-board'>
                 <Header as='h2' dividing>
-                    <Icon name='dashboard' />
+                    <Icon name='dashboard' className="icon"/>
                     <Header.Content>
                         Dashboard
                     </Header.Content>

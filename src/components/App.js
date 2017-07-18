@@ -32,8 +32,8 @@ class App extends Component {
             <Router>
                 <Sidebar>
                     <Switch>
-                        <Route path="/login" component={LoginPage}/>
-                        <Route exact path="/" component={Dashboard}/>
+                        <Route exact path="/" component={LoginPage}/>
+                        <Route path="/dashboard" component={Dashboard}/>
                         <Route path="/users" component={Users}/>
                         <Route path="/adduser" component={AddUser}/>
                         <Route component={NotFound}/>

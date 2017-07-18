@@ -4,7 +4,7 @@ let items = [
         name: 'Dashboard',
         icon: 'dashboard',
         subHeader: 'Test',
-        path: '/'
+        path: '/dashboard'
     },
     {
         name: 'Users',
@@ -22,7 +22,7 @@ let items = [
         name: 'LoginPage',
         icon: 'sign in',
         subHeader: '',
-        path: '/login' //this has to be the fucking folder dude
+        path: '/'
     }
 ];
 

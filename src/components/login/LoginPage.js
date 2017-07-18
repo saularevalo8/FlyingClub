@@ -22,7 +22,7 @@ const LoginPage = () => (
             <AuthButton/>
             <div>
                 <Header as="h3"><Link to="/public">Public Page</Link></Header>
-                <Header as="h3"><Link to="/protected">Protected Page</Link></Header>
+                <Header as="h3"><Link to="/protected">A&E Flying Club Dashboard</Link></Header>
                 <br/>
             </div>
             <Route path="/public" component={Public}/>
@@ -70,8 +70,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   )}/>
 )
 
-const Public = () => <Header as="h3">Public</Header>
-const Protected = () => <Header as="h3">Protected</Header>
+const Public = () => <Header as="h2">Public</Header>
+const Protected = () => <Header as="h2">Protected</Header>
 
 class Login extends React.Component {
   state = {

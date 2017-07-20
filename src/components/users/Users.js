@@ -7,14 +7,15 @@ import UserProfile from './UserProfile';
 import {
     Route
 } from 'react-router-dom'
+import './users.css'
 
 
 class Users extends Component {
     render() {
         let {match} = this.props;
         return (
-            <div>
-                <Route path={`${match.url}/:id`} render={() => <UserProfile test="test" /> } />
+            <div className="user-profile">
+                <Route path={`${match.url}/:id`} render={() => <UserProfile className="user-profile" test="test" /> } />
                 
                 <Route exact path={`${match.url}`} test="test" component={UserGrid}/>
 

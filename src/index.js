@@ -10,7 +10,7 @@ import axios from 'axios';
 import LoginPage from './components/login/LoginPage';
 
 ReactDOM.render(
-    <Provider store={store}>
+    <Provider className="index-page" store={store}>
         <App />
     </Provider>,
     document.getElementById('root'));

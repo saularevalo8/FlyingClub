@@ -1,4 +1,14 @@
 .new-user-form {
     margin: 0;
+    background-color: #D1DEEF;
+    border: 2px solid #000000;
+    border-radius: 10px;
 }
 
+.new-user-form .header {
+     padding: 11px 0 0 0; 
+}
+
+.new-user-form .submit-button {
+    color: #3c404a;
+}

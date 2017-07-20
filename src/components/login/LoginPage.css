@@ -1,7 +1,14 @@
-.login-page {
-    background-color: red;
+.login-form {
+    margin: 0;
+    background-color: #D1DEEF;
+    border: 2px solid #000000;
+    border-radius: 10px;
 }
 
-.login-page .myLogo {
-    margin: 0;
+.login-form .header {
+     padding: 11px 0 0 0; 
+}
+
+.login-form .submit-button {
+    color: #3c404a;
 }

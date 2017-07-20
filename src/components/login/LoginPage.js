@@ -1,6 +1,22 @@
 import React from 'react'
-import { Button, Container, Menu, Divider, Header, Label, Segment } from 'semantic-ui-react'
-import { Form, Input, TextArea, Checkbox, Radio, RadioGroup, Dropdown, Select, } from 'formsy-semantic-ui-react'
+import { 
+  Button, 
+  Container, 
+  Form, 
+  Menu, 
+  Input, 
+  TextArea, 
+  Checkbox, 
+  Radio, 
+  RadioGroup, 
+  Dropdown, 
+  Select, 
+  Divider, 
+  Header, 
+  Label, 
+  Segment 
+} from 'semantic-ui-react'
+// import { Input, TextArea, Checkbox, Radio, RadioGroup, Dropdown, Select, } from 'formsy-semantic-ui-react'
 import './LoginPage.css'
 
 import {
@@ -34,16 +50,24 @@ const LoginPage = () => (
   <Router>
     <div className="ui middle aligned center aligned grid">
       <div className="column">
-          <Container textAlign='center'>
-              <AuthButton/>
-              <div>
-                  <Header as="h3"><Link to="/public">Public Page</Link></Header>
-                  <Header as="h3"><Link to="/protected">A&E Flying Club Dashboard</Link></Header>
-                  <br/>
-              </div>
-              <Route path="/public" component={Public}/>
-              <Route path="/login" component={Login}/>
-              <PrivateRoute path="/protected" component={Protected}/>
+        <Container className="login-form" text>
+          <Header className="header" as='h1' textAlign='center'>Login</Header>
+            <Segment padded inverted>
+            
+              <Form inverted className="ui form">
+                <Form.Group widths='equal'>
+                  <AuthButton/>
+                  <div>
+                      <Header as="h3"><Link to="/public">Public Page</Link></Header>
+                      <Header as="h3"><Link to="/protected">A&E Flying Club Dashboard</Link></Header>
+                      <br/>
+                  </div>
+                  <Route path="/public" component={Public}/>
+                  <Route path="/login" component={Login}/>
+                  <PrivateRoute path="/protected" component={Protected}/>
+                 </Form.Group>
+                </Form>
+            </Segment>
           </Container>
         </div>
     </div>

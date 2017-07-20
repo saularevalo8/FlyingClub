@@ -50,9 +50,9 @@ class NewUserForm extends Component {
     const { value } = this.state
     return (
     <Container className="new-user-form" text>
-    <Header as='h1' textAlign='center'>Create New User</Header>
-    <Segment padded>
-      <Form>
+    <Header className="header" as='h1' textAlign='center'>Create New User</Header>
+    <Segment padded inverted>
+      <Form inverted className="ui form">
         <Form.Group widths='equal'>
           <Form.Field control={Input} label='First name' placeholder='First name' />
           <Form.Field control={Input} label='Last name' placeholder='Last name' />
@@ -83,7 +83,7 @@ class NewUserForm extends Component {
             <Form.Field control={Select} label='Scheduling Privileges' options={SchedulePrivOptions} placeholder='Scheduling Privileges'/>
             <Form.Field control={Select} label='A/C Assignment' options={ACAssignment} placeholder='A/C Assignment'/>
         </Form.Group>
-        <Form.Field control={Button}>Submit</Form.Field>
+        <Form.Field inverted className="submit-button" control={Button}>Submit</Form.Field>
       </Form>
     </Segment>
     </Container>

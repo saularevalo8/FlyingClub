@@ -6,6 +6,7 @@ import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getUsers} from '../../store/actions/user_actions';
+import './user-grid.css'
 
 
 class UserGrid extends Component {
@@ -22,6 +23,7 @@ class UserGrid extends Component {
             return (
                 <Grid.Column key={item.id} mobile={16} tablet={4} computer={3}>
                     <PersonCard
+                        className="user-grid"
                         headerName={item.firstName + " " + item.lastName}
                         memberStatus={item.memberStatus}
                         phoneNum={item.phoneNum}

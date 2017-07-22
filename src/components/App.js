@@ -12,6 +12,7 @@ import {getUsers} from '../store/actions/user_actions';
 import axios from 'axios';
 import LoginPage from './login/LoginPage';
 
+
 import {
     BrowserRouter as Router,
     Route,
@@ -32,8 +33,9 @@ class App extends Component {
             <Router>
                 <Sidebar>
                     <Switch>
-                        <Route exact path="/" component={LoginPage}/>
-                        <Route path="/dashboard" component={Dashboard}/>
+                        <Route exact path="/" component={LoginPage}>
+                            <Route path="/dashboard" component={Dashboard}/>
+                        </Route>
                         <Route path="/users" component={Users}/>
                         <Route path="/adduser" component={AddUser}/>
                         <Route component={NotFound}/>

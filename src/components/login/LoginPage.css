@@ -3,10 +3,12 @@
     background-color: #D1DEEF;
     border: 2px solid #000000;
     border-radius: 10px;
+    text-align: center;
 }
 
 .login-form .header {
      padding: 11px 0 0 0; 
+     text-align: center;
 }
 
 .login-form .submit-button {

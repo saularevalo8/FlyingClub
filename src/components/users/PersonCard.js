@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component, StyleSheet } from 'react';
 import {Card, Icon, Image} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
-import './person-card.css'
+import './person-card.css';
 
 const styles = {
         background: {

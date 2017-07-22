@@ -3,7 +3,7 @@ import mysql from 'mysql';
 let connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    database : 'MyDb'
+    database : 'Flying-Club'
 });
 
 

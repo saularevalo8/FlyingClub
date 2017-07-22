@@ -33,6 +33,8 @@ import {
 // 3. Log in
 // 4. Click the back button, note the URL each time
 
+
+
 const styles = {
   root: {
     marginTop: 18,
@@ -42,35 +44,53 @@ const styles = {
     color: '#f00',
     textAlign: 'center',
   },
+  links: {
+    textAlign: 'center'
+  },
+  innerContent: {
+    color: '#fffffff'
+  }
+
 };
 
 const errorLabel = <Label color="red" pointing="left"/>;
 
 const LoginPage = () => (
   <Router>
-    <div className="ui middle aligned center aligned grid">
-      <div className="column">
+    
         <Container className="login-form" text>
           <Header className="header" as='h1' textAlign='center'>Login</Header>
             <Segment padded inverted>
-            
+                  <AuthButton />
               <Form inverted className="ui form">
                 <Form.Group widths='equal'>
-                  <AuthButton/>
-                  <div>
-                      <Header as="h3"><Link to="/public">Public Page</Link></Header>
-                      <Header as="h3"><Link to="/protected">A&E Flying Club Dashboard</Link></Header>
+                    <Form.Field control={Input} label='Email' placeholder='Email'/>
+                  </Form.Group>
+                  <Form.Group widths='equal'>
+                    <Form.Field control={Input} label='Password' placeholder='Password'/>
+                </Form.Group>
+                  <div style={ styles.innerContent }>
+                      <Route path="/public" component={Public}>
+                         <Header as="h3"><Link to="/public">A&E Home</Link></Header>
+                      </Route>
+                      <Route path="/login" component={Login}>
+                        <Header as="h3"><Link to="/protected">A&E Flying Club Dashboard</Link></Header>
+                      </Route>
+                      <div className='login-page' style={ styles.links }>
+                        <Container fluid text>
+                            <Header as="h4">You must log in!</Header>
+                            <Button inverted onClick={this.login}>Log in</Button>
+                            <PrivateRoute path="/protected" component={Protected}/>
+                        </Container>
+                      </div>
                       <br/>
+                      
                   </div>
-                  <Route path="/public" component={Public}/>
-                  <Route path="/login" component={Login}/>
-                  <PrivateRoute path="/protected" component={Protected}/>
-                 </Form.Group>
+
                 </Form>
             </Segment>
           </Container>
-        </div>
-    </div>
+
   </Router>
 )
 
@@ -104,7 +124,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       <Component {...props}/>
     ) : (
       <Redirect to={{
-        pathname: '/login',
+        pathname: '/dashboard',
         state: { from: props.location }
       }}/>
     )
@@ -132,18 +152,12 @@ class Login extends React.Component {
     
     if (redirectToReferrer) {
       return (
-        <Redirect to={from}/>
+        <Redirect to={{
+          pathname: '/dashboard'
+        }}/>
       )
     }
     
-    return (
-      <div className='login-page'>
-        <Container fluid text>
-            <Header as="h4">You must log in to view the page at {from.pathname}</Header>
-            <Button secondary onClick={this.login}>Log in</Button>
-        </Container>
-      </div>
-    )
   }
 }
 

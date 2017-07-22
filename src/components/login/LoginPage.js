@@ -77,8 +77,7 @@ const LoginPage = () => (
                         <Header as="h3"><Link to="/protected">A&E Flying Club Dashboard</Link></Header>
                       </Route>
                       <div className='login-page' style={ styles.links }>
-                        <Container fluid text>
-                            <Header as="h4">You must log in!</Header>
+                        <Container fluid text>gi
                             <Button inverted onClick={this.login}>Log in</Button>
                             <PrivateRoute path="/protected" component={Protected}/>
                         </Container>
@@ -94,6 +93,7 @@ const LoginPage = () => (
   </Router>
 )
 
+// left off @ adding <Header> routes to login form, taken from the login class
 const fakeAuth = {
   isAuthenticated: false,
   authenticate(cb) {
@@ -124,7 +124,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       <Component {...props}/>
     ) : (
       <Redirect to={{
-        pathname: '/dashboard',
+        pathname: '/login',
         state: { from: props.location }
       }}/>
     )
@@ -152,9 +152,7 @@ class Login extends React.Component {
     
     if (redirectToReferrer) {
       return (
-        <Redirect to={{
-          pathname: '/dashboard'
-        }}/>
+        <Redirect to={from}/>
       )
     }
     
